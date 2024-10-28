@@ -1,74 +1,44 @@
 // src/components/Home.tsx
-import { useWallet } from '@txnlab/use-wallet'
 import React, { useState } from 'react'
+import { useWallet } from '@txnlab/use-wallet'
 import ConnectWallet from './components/ConnectWallet'
-import Transact from './components/Transact'
-import AppCalls from './components/AppCalls'
+import Navbar from './components/Navbar'
 
-interface HomeProps {}
-
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC = () => {
   const [openWalletModal, setOpenWalletModal] = useState<boolean>(false)
-  const [openDemoModal, setOpenDemoModal] = useState<boolean>(false)
-  const [appCallsDemoModal, setAppCallsDemoModal] = useState<boolean>(false)
   const { activeAddress } = useWallet()
 
   const toggleWalletModal = () => {
     setOpenWalletModal(!openWalletModal)
   }
 
-  const toggleDemoModal = () => {
-    setOpenDemoModal(!openDemoModal)
-  }
-
-  const toggleAppCallsModal = () => {
-    setAppCallsDemoModal(!appCallsDemoModal)
-  }
-
   return (
-    <div className="hero min-h-screen bg-teal-400">
-      <div className="hero-content text-center rounded-lg p-6 max-w-md bg-white mx-auto">
-        <div className="max-w-md">
-          <h1 className="text-4xl">
-            Welcome to <div className="font-bold">AlgoKit 🙂</div>
-          </h1>
-          <p className="py-6">
-            This starter has been generated using official AlgoKit React template. Refer to the resource below for next steps.
-          </p>
+    <div className="min-h-screen text-white">
+      {/* Header */}
+      <header className="flex justify-between items-center p-6 bg-dark-header border-1 border-teal-800">
+        <Navbar />
+      </header>
 
-          <div className="grid">
-            <a
-              data-test-id="getting-started"
-              className="btn btn-primary m-2"
-              target="_blank"
-              href="https://github.com/algorandfoundation/algokit-cli"
-            >
-              Getting started
-            </a>
-
-            <div className="divider" />
-            <button data-test-id="connect-wallet" className="btn m-2" onClick={toggleWalletModal}>
-              Wallet Connection
-            </button>
-
-            {activeAddress && (
-              <button data-test-id="transactions-demo" className="btn m-2" onClick={toggleDemoModal}>
-                Transactions Demo
-              </button>
-            )}
-
-            {activeAddress && (
-              <button data-test-id="appcalls-demo" className="btn m-2" onClick={toggleAppCallsModal}>
-                Contract Interactions Demo
-              </button>
-            )}
-          </div>
-
-          <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
-          <Transact openModal={openDemoModal} setModalState={setOpenDemoModal} />
-          <AppCalls openModal={appCallsDemoModal} setModalState={setAppCallsDemoModal} />
+      <section className="">
+        <h1 className="text-4xl font-bold mb-4">
+          Secure Your <span className="text-teal-300">Documents</span> with
+          <span className="text-teal-300"> Blockchain</span> Technology
+        </h1>
+        <p className="mb-8 text-lg">
+          Our platform offers decentralized, private, and immutable document
+          storage, ensuring your data is safe and fully under your control.
+        </p>
+        <div className="flex gap-4">
+          <button className="bg-[#FFFFFF] p-5 font-semibold hover:bg-gray-200">
+            Get Started
+          </button>
+          <button className="btn border-1 border-teal-800 font-semibold hover:bg-teal-300">
+            Learn More
+          </button>
         </div>
-      </div>
+      </section>
+
+      <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
     </div>
   )
 }
