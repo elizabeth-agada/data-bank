@@ -5,7 +5,9 @@ import { PROVIDER_ID, ProvidersArray, WalletProvider, useInitializeProviders } f
 import algosdk from 'algosdk'
 import { SnackbarProvider } from 'notistack'
 import Home from './Home'
+import HowItWorks from './howItWorks'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 let providersArray: ProvidersArray
 if (import.meta.env.VITE_ALGOD_NETWORK === '') {
@@ -48,10 +50,17 @@ export default function App() {
   })
 
   return (
+    <div className="">
     <SnackbarProvider maxSnack={3}>
       <WalletProvider value={walletProviders}>
         <Home />
       </WalletProvider>
     </SnackbarProvider>
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/how" element={<HowItWorks />} />
+</Routes>
+</div>
   )
 }
