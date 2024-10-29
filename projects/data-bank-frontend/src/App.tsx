@@ -58,7 +58,6 @@ export default function App() {
     </SnackbarProvider>
 
 <Routes>
-  <Route path="/" element={<Home />} />
   <Route path="/how" element={<HowItWorks />} />
 </Routes>
 </div>

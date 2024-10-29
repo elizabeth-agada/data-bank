@@ -13,23 +13,23 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen">
-        <Navbar />
+    <div className="">
+      <Navbar />
 
-      <section className="text-center text-white">
-        <h1 className="text-4xl font-bold mb-4">
+      <section className="text-center text-white min-h-screen flex flex-col items-center justify-center">
+        <h1 className="text-6xl font-bold mb-4 max-w-4xl">
           Secure Your <span className="text-[#2B9DDA]">Documents</span> with
           <span className="text-[#2B9DDA]"> Blockchain</span> Technology
         </h1>
-        <p className="mb-8 text-lg">
+        <p className="mb-8 text-lg max-w-xl mx-auto">
           Our platform offers decentralized, private, and immutable document
           storage, ensuring your data is safe and fully under your control.
         </p>
         <div className="flex gap-4">
-          <button className="bg-[#FFFFFF] p-5 text-black font-semibold hover:bg-gray-200">
+          <button className="bg-[#FFFFFF] border-1 px-5 py-3 rounded-2xl text-black font-semibold">
             Get Started
           </button>
-          <button className="btn border-1 border-teal-800 font-semibold hover:bg-teal-300">
+          <button className="border-1 px-5 py-3 border-[#2B9DDA] rounded-2xl text-[#2B9DDA] font-semibold hover:bg-[#2B9DDA]">
             Learn More
           </button>
         </div>
