@@ -1,11 +1,10 @@
 /* App.css */
 body {
-  background-image: url('/img/Home.png');
+  background-image: url("/img/Home.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
 }
 .min-h-screen {
   min-height: 100vh;
