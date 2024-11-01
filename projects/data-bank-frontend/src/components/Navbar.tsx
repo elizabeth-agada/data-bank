@@ -22,7 +22,7 @@ export default function Navbar() {
           <a href="/how-it-works" className="hover:text-[#2B9DDA]">
             How Does It Work
           </a>
-          <a href="#" className="hover:text-[#2B9DDA]">
+          <a href="/about-us" className="hover:text-[#2B9DDA]">
             About Us
           </a>
         </div>
