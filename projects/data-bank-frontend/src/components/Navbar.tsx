@@ -1,8 +1,6 @@
-
-import React, { useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import WalletConnector from './WalletConnector';
-
+import React, { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import WalletConnector from "./WalletConnector";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,18 +12,21 @@ export default function Navbar() {
 
   return (
     <>
-
       <div className="grid grid-cols-12 max-w-7xl mx-auto items-center bg-[#5e5e5e] bg-opacity-50 rounded-2xl py-4 px-6 mt-5 text-white z-10">
-
         <div className="col-span-6 md:col-span-4 flex justify-start">
           <img src="/img/logo.png" alt="Logo" className="h-8" />
         </div>
 
-
-        <div className="hidden md:col-span-4 md:flex justify-center space-x-6 font-semibold text-lg">
-          <a href="#" className="hover:text-[#2B9DDA]">Home</a>
-          <a href="/how" className="hover:text-[#2B9DDA]">How Does It Work</a>
-          <a href="#" className="hover:text-[#2B9DDA]">About Us</a>
+        <div className="hidden md:col-span-4 md:flex justify-center md:space-x-2 lg:space-x-6 font-semibold text-lg">
+          <a href="/" className="hover:text-[#2B9DDA]">
+            Home
+          </a>
+          <a href="/how-it-works" className="hover:text-[#2B9DDA]">
+            How Does It Work
+          </a>
+          <a href="/about-us" className="hover:text-[#2B9DDA]">
+            About Us
+          </a>
         </div>
 
         <div className="col-span-6 md:col-span-4 flex justify-end">
@@ -36,12 +37,8 @@ export default function Navbar() {
             >
               Connect Wallet
             </button>
-            <WalletConnector
-              isOpen={isWalletOpen}
-              onClose={() => setIsWalletOpen(false)}
-            />
+            <WalletConnector isOpen={isWalletOpen} onClose={() => setIsWalletOpen(false)} />
           </div>
-
 
           <div className="md:hidden ml-4" onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? <XMarkIcon className="h-8 w-8 text-white" /> : <Bars3Icon className="h-8 w-8 text-white" />}
