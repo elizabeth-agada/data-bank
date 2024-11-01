@@ -28,7 +28,7 @@
     "vite.config.js",
     "src/utils/",
     "src/utils/",
-    "src/main.tsx",
+    "src/main.tsx", "howItWorks.tsx",
   ],
   "references": [
     {
