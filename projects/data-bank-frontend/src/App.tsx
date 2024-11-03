@@ -8,8 +8,10 @@ import Home from "./Home";
 import HowItWorks from "./HowItWorks";
 import AboutUs from "./AboutUs";
 import DashBoard from "./DashBoard";
+import DashboardHome from "./DashboardHome";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 let providersArray: ProvidersArray;
 if (import.meta.env.VITE_ALGOD_NETWORK === "") {
@@ -53,18 +55,18 @@ export default function App() {
 
   return (
     <div className="">
-      <SnackbarProvider maxSnack={3}>
-        <WalletProvider value={walletProviders}>
-        <Routes>
+    <SnackbarProvider maxSnack={3}>
+      <WalletProvider value={walletProviders}>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/dashboard" element={<DashBoard />}>
+        <Route path="home" element={<DashboardHome />} />
+      </Route>
       </Routes>
-        </WalletProvider>
-      </SnackbarProvider>
-
-
-    </div>
+      </WalletProvider>
+    </SnackbarProvider>
+  </div>
   );
 }
