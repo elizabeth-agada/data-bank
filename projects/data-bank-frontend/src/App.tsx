@@ -6,6 +6,8 @@ import algosdk from "algosdk";
 import { SnackbarProvider } from "notistack";
 import Home from "./Home";
 import HowItWorks from "./HowItWorks";
+import AboutUs from "./AboutUs";
+import DashBoard from "./DashBoard";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -61,6 +63,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
     </div>
   );
