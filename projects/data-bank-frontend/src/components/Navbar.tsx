@@ -23,8 +23,8 @@ export default function Navbar() {
 
 
         <div className="hidden md:col-span-4 md:flex justify-center space-x-6 font-semibold text-lg">
-          <a href="#" className="hover:text-[#2B9DDA]">Home</a>
-          <a href="/how" className="hover:text-[#2B9DDA]">How Does It Work</a>
+          <a href="/" className="hover:text-[#2B9DDA]">Home</a>
+          <a href="/how-it-works" className="hover:text-[#2B9DDA]">How Does It Work</a>
           <a href="#" className="hover:text-[#2B9DDA]">About Us</a>
         </div>
 
@@ -51,10 +51,10 @@ export default function Navbar() {
 
       {isMobileMenuOpen && (
         <div className="flex flex-col items-center space-y-2 mt-3 md:hidden bg-[#2b2b2b] bg-opacity-50 rounded-lg py-3 text-white">
-          <a href="#" className="hover:text-[#2B9DDA] font-semibold text-lg">
+          <a href="/" className="hover:text-[#2B9DDA] font-semibold text-lg">
             Home
           </a>
-          <a href="/how" className="hover:text-[#2B9DDA] font-semibold text-lg">
+          <a href="/how-it-works" className="hover:text-[#2B9DDA] font-semibold text-lg">
             How Does It Work
           </a>
           <a href="#" className="hover:text-[#2B9DDA] font-semibold text-lg">
