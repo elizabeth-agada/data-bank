@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import WalletConnector from "./WalletConnector";
-
+import { Home, Settings, Book } from "lucide-react";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="grid grid-cols-12 max-w-7xl mx-auto items-center bg-[#5e5e5e] bg-opacity-50 rounded-2xl py-4 px-6 mt-5 text-white z-10">
+      <div className="grid grid-cols-12 max-w-7xl mx-auto items-center bg-[#5e5e5e] bg-opacity-50 rounded-2xl py-4 px-6 mt-3 text-white z-10">
         <div className="col-span-6 md:col-span-4 flex justify-start">
           <img src="/img/logo.png" alt="Logo" className="h-8" />
         </div>
@@ -33,7 +33,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setIsWalletOpen(!isWalletOpen)}
-              className="md:px-5 text-sm py-4 bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200"
+              className="hidden md:block p-2 md:px-5 md:py-4 text-sm bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200"
             >
               Connect Wallet
             </button>
@@ -41,22 +41,31 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden ml-4" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <XMarkIcon className="h-8 w-8 text-white" /> : <Bars3Icon className="h-8 w-8 text-white" />}
+            {isMobileMenuOpen ? <XMarkIcon className="h-8 w-8 text-[#2B9DDA]" /> : <Bars3Icon className="h-8 w-8 text-[#2B9DDA]" />}
           </div>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="flex flex-col items-center space-y-2 mt-3 md:hidden bg-[#2b2b2b] bg-opacity-50 rounded-lg py-3 text-white">
-          <a href="#" className="hover:text-[#2B9DDA] font-semibold text-lg">
+        <div className="absolute right-0 top-16 h-2/3 w-2/3 flex flex-col space-y-2 mt-3 md:hidden bg-[#5e5e5e] bg-opacity-50 backdrop-blur-sm rounded-bl-lg py-3 px-5 text-white gap-3 ">
+          <a href="/" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
+            <Home size={18} className="text-[#2B9DDA]" />
             Home
           </a>
-          <a href="/how" className="hover:text-[#2B9DDA] font-semibold text-lg">
+          <a href="/how-it-works" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
+            <Settings size={18} className="text-[#2B9DDA]" />
             How Does It Work
           </a>
-          <a href="#" className="hover:text-[#2B9DDA] font-semibold text-lg">
+          <a href="/about-us" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
+            <Book size={18} className="text-[#2B9DDA]" />
             About Us
           </a>
+          <button
+            onClick={() => setIsWalletOpen(!isWalletOpen)}
+            className="p-2 md:px-5 md:py-4 text-sm bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200"
+          >
+            Connect Wallet
+          </button>
         </div>
       )}
     </>
