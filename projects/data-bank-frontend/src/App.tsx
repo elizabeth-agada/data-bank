@@ -53,19 +53,18 @@ export default function App() {
 
   return (
     <div className="">
-      {/* <SnackbarProvider maxSnack={3}>
+      <SnackbarProvider maxSnack={3}>
         <WalletProvider value={walletProviders}>
-          <Home />
-          <HowItWorks/>
-        </WalletProvider>
-      </SnackbarProvider> */}
-
-      <Routes>
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
+        </WalletProvider>
+      </SnackbarProvider>
+
+
     </div>
   );
 }

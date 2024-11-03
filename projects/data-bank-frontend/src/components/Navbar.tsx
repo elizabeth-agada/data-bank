@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import WalletConnector from "./WalletConnector";
-import { Home, Settings, Book } from "lucide-react";
+//import { Home, Settings, Book } from "lucide-react";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
@@ -49,15 +49,15 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="absolute right-0 top-16 h-2/3 w-2/3 flex flex-col space-y-2 mt-3 md:hidden bg-[#5e5e5e] bg-opacity-50 backdrop-blur-sm rounded-bl-lg py-3 px-5 text-white gap-3 ">
           <a href="/" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
-            <Home size={18} className="text-[#2B9DDA]" />
+            {/*<Home size={18} className="text-[#2B9DDA]" />*/}
             Home
           </a>
           <a href="/how-it-works" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
-            <Settings size={18} className="text-[#2B9DDA]" />
+           {/*} <Settings size={18} className="text-[#2B9DDA]" />*/}
             How Does It Work
           </a>
           <a href="/about-us" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
-            <Book size={18} className="text-[#2B9DDA]" />
+           {/*<Book size={18} className="text-[#2B9DDA]" />*/}
             About Us
           </a>
           <button
