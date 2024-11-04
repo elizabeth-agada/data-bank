@@ -9,6 +9,7 @@ import HowItWorks from "./HowItWorks";
 import AboutUs from "./AboutUs";
 import DashBoard from "./DashBoard";
 import DashboardHome from "./DashboardHome";
+import NFTMinting from "./NFTMinting";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashboardUpload from "./DashboardUpload ";

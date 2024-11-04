@@ -43,9 +43,10 @@ export default function DashboardHome() {
         <div className="bg-white text-black px-4 py-2 rounded-lg text-sm font-mono">6VDFGQZLNU3RTEXULVS</div>
       </div>
 
-      <div className="mb-12">
-        <h2 className="text-lg font-semibold mb-6">Recent Documents</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Recent Documents Section */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold mb-4">Recent Documents</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {recentDocuments.map((doc, index) => (
             <div key={index} className="bg-[#1E1E1E] rounded-xl p-4 border border-gray-800">
               <div className="flex justify-between items-start mb-4">
@@ -71,7 +72,7 @@ export default function DashboardHome() {
                     </div>
                   ))}
                 </div>
-                <button className="px-4 py-1 bg-white text-[#2B9DDA] text-sm rounded-lg hover:bg-[#2B9DDA]/20 transition-colors">
+                <button className="px-3 py-1 bg-white text-[#2B9DDA] text-xs sm:text-sm rounded-lg hover:bg-[#2B9DDA]/20 transition-colors">
                   Share
                 </button>
               </div>
@@ -82,16 +83,16 @@ export default function DashboardHome() {
 
       {/* All Documents Section */}
       <div>
-        <h2 className="text-lg font-medium mb-6">All Documents</h2>
-        <div className="bg-[#1E1E1E] rounded-xl border border-gray-800">
+        <h2 className="text-lg font-medium mb-4">All Documents</h2>
+        <div className="bg-[#1E1E1E] rounded-xl border border-gray-800 overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="text-gray-400 text-sm">
-                <th className="text-left px-6 py-4 font-medium">Name</th>
-                <th className="text-left px-6 py-4 font-medium">Type</th>
-                <th className="text-left px-6 py-4 font-medium">Size</th>
-                <th className="text-left px-6 py-4 font-medium">Date</th>
-                <th className="text-right px-6 py-4 font-medium">Action</th>
+              <tr className="text-gray-400 text-sm hidden sm:table-row">
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Name</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Type</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Size</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Date</th>
+                <th className="text-right px-4 sm:px-6 py-2 sm:py-4 font-medium">Action</th>
               </tr>
             </thead>
             <tbody>
