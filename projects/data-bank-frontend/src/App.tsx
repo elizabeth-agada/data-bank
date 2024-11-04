@@ -12,7 +12,7 @@ import DashboardHome from "./DashboardHome";
 import NFTMinting from "./NFTMinting";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import DashboardUpload from "./DashboardUpload ";
 
 let providersArray: ProvidersArray;
 if (import.meta.env.VITE_ALGOD_NETWORK === "") {
@@ -56,19 +56,19 @@ export default function App() {
 
   return (
     <div className="">
-    <SnackbarProvider maxSnack={3}>
-      <WalletProvider value={walletProviders}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/dashboard" element={<DashBoard />}>
-          <Route path="home" element={<DashboardHome />} />
-          <Route path="nft" element={<NFTMinting />} />
-        </Route>
-      </Routes>
-      </WalletProvider>
-    </SnackbarProvider>
-  </div>
+      <SnackbarProvider maxSnack={3}>
+        <WalletProvider value={walletProviders}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/dashboard" element={<DashBoard />}>
+              <Route path="home" element={<DashboardHome />} />
+              <Route path="upload" element={<DashboardUpload />} />
+            </Route>
+          </Routes>
+        </WalletProvider>
+      </SnackbarProvider>
+    </div>
   );
 }

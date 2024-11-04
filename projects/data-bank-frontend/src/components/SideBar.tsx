@@ -18,9 +18,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, text, to }) => {
     <Link
       to={to}
       className={`flex items-center gap-3 pl-11 py-4 rounded-md transition-colors relative
-        ${isActive
-          ? "text-[#2B9DDA] after:content-[''] after:absolute after:bottom-0 after:left-11 after:right-4 after:h-0.5 after:bg-[#b4d7ea]"
-          : "text-gray-300 hover:bg-white/5 hover:text-white"
+        ${
+          isActive
+            ? "text-[#2B9DDA] after:content-[''] after:absolute after:bottom-0 after:left-11 after:right-4 after:h-0.5 after:bg-[#b4d7ea]"
+            : "text-gray-300 hover:bg-white/5 hover:text-white"
         }`}
     >
       <Icon size={18} />
@@ -42,8 +43,8 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`flex-shrink-0 bg-[#171618] text-white py-3 ${
-        isOpen ? "w-64" : "w-20"
+      className={` absolute flex flex-col bg-[#171618] text-white py-3 ${
+        isOpen ? "pl-3 w-64 h-screen" : "w-full h-auto"
       } transition-all duration-300 ease-in-out border-r border-gray-800`}
     >
       <div className="md:hidden ml-4" onClick={toggleMobileMenu}>
@@ -57,21 +58,21 @@ export default function Sidebar() {
         )}
       </div>
       {isOpen && (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col gap-4 h-full">
           {/* Header */}
           <div className="px-6 mb-6">
             <img src="/img/logo.png" alt="Logo" className="h-10" />
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1">
+          <nav className="">
             <MenuItem icon={Home} text="Home" to="/dashboard/home" />
             <MenuItem icon={Upload} text="Upload Document" to="/dashboard/upload" />
             <MenuItem icon={Coins} text="NFT Minting" to="/dashboard/nft" />
           </nav>
 
           {/* Footer */}
-          <div className="pl-11 pb-4">
+          <div className="pl-11">
             <button
               onClick={handleLogout}
               className="flex items-center gap-3 py-2 text-gray-300 hover:bg-white/5 hover:text-white rounded-md transition-colors w-full"
