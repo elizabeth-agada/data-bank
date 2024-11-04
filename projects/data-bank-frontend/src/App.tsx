@@ -9,6 +9,7 @@ import HowItWorks from "./HowItWorks";
 import AboutUs from "./AboutUs";
 import DashBoard from "./DashBoard";
 import DashboardHome from "./DashboardHome";
+import NFTMinting from "./NFTMinting";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -62,8 +63,9 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/dashboard" element={<DashBoard />}>
-        <Route path="home" element={<DashboardHome />} />
-      </Route>
+          <Route path="home" element={<DashboardHome />} />
+          <Route path="nft" element={<NFTMinting />} />
+        </Route>
       </Routes>
       </WalletProvider>
     </SnackbarProvider>

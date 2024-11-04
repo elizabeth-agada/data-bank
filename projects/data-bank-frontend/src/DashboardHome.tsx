@@ -34,18 +34,21 @@ export default function DashboardHome() {
   ];
 
   return (
-    <div className="p-8 text-white bg-[#171618] min-h-screen">
+    <div className="p-4 sm:p-8 text-white bg-[#171618] min-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between mb-12">
-        <h1 className="text-2xl font-semibold">Welcome, <span className="text-[#2B9DDA]">user</span></h1>
-        <div className="bg-white text-black px-4 py-2 rounded-lg text-sm font-mono">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8">
+        <h1 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-0">
+          Welcome, <span className="text-[#2B9DDA]">user</span>
+        </h1>
+        <div className="bg-white text-black px-4 py-2 rounded-lg text-sm font-mono mt-2 sm:mt-0">
           6VDFGQZLNU3RTEXULVS
         </div>
       </div>
 
-      <div className="mb-12">
-        <h2 className="text-lg font-semibold mb-6">Recent Documents</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Recent Documents Section */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold mb-4">Recent Documents</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {recentDocuments.map((doc, index) => (
             <div
               key={index}
@@ -77,7 +80,7 @@ export default function DashboardHome() {
                     </div>
                   ))}
                 </div>
-                <button className="px-4 py-1 bg-white text-[#2B9DDA] text-sm rounded-lg hover:bg-[#2B9DDA]/20 transition-colors">
+                <button className="px-3 py-1 bg-white text-[#2B9DDA] text-xs sm:text-sm rounded-lg hover:bg-[#2B9DDA]/20 transition-colors">
                   Share
                 </button>
               </div>
@@ -88,39 +91,39 @@ export default function DashboardHome() {
 
       {/* All Documents Section */}
       <div>
-        <h2 className="text-lg font-medium mb-6">All Documents</h2>
-        <div className="bg-[#1E1E1E] rounded-xl border border-gray-800">
+        <h2 className="text-lg font-medium mb-4">All Documents</h2>
+        <div className="bg-[#1E1E1E] rounded-xl border border-gray-800 overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="text-gray-400 text-sm">
-                <th className="text-left px-6 py-4 font-medium">Name</th>
-                <th className="text-left px-6 py-4 font-medium">Type</th>
-                <th className="text-left px-6 py-4 font-medium">Size</th>
-                <th className="text-left px-6 py-4 font-medium">Date</th>
-                <th className="text-right px-6 py-4 font-medium">Action</th>
+              <tr className="text-gray-400 text-sm hidden sm:table-row">
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Name</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Type</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Size</th>
+                <th className="text-left px-4 sm:px-6 py-2 sm:py-4 font-medium">Date</th>
+                <th className="text-right px-4 sm:px-6 py-2 sm:py-4 font-medium">Action</th>
               </tr>
             </thead>
             <tbody>
               {allDocuments.map((doc, index) => (
                 <tr
                   key={index}
-                  className="border-t border-gray-800 text-sm"
+                  className="border-t border-gray-800 text-sm flex flex-col sm:table-row"
                 >
-                  <td className="px-6 py-4 flex items-center gap-3">
+                  <td className="px-4 sm:px-6 py-2 sm:py-4 flex items-center gap-3">
                     <div className="w-8 h-8 bg-[#2B9DDA]/10 rounded-lg flex items-center justify-center">
                       <img src="/api/placeholder/32/32" alt="document" className="w-4 h-4" />
                     </div>
                     {doc.name}
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 sm:px-6 py-2 sm:py-4">
                     <span className="px-2 py-1 bg-[#2B9DDA] text-white rounded-lg">
                      {doc.type}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-gray-400">{doc.size}</td>
-                  <td className="px-6 py-4 text-gray-400">{doc.date}</td>
-                  <td className="px-6 py-4 text-right">
-                    <button className="text-[#2B9DDA] bg-white p-3 px-5 hover:text-[#2B9DDA]/80">
+                  <td className="px-4 sm:px-6 py-2 sm:py-4 text-gray-400">{doc.size}</td>
+                  <td className="px-4 sm:px-6 py-2 sm:py-4 text-gray-400">{doc.date}</td>
+                  <td className="px-4 sm:px-6 py-2 sm:py-4 text-right">
+                    <button className="text-[#2B9DDA] bg-white px-4 py-2 rounded-lg hover:text-[#2B9DDA]/80 transition-colors">
                       Share
                     </button>
                   </td>
