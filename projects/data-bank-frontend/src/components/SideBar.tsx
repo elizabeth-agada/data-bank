@@ -58,14 +58,14 @@ export default function Sidebar() {
         )}
       </div>
       {isOpen && (
-        <div className="flex flex-col gap-4 h-full">
+        <div className="flex flex-col  h-full">
           {/* Header */}
           <div className="px-6 mb-6">
             <img src="/img/logo.png" alt="Logo" className="h-10" />
           </div>
 
           {/* Navigation */}
-          <nav className="">
+          <nav className="flex-1 ">
             <MenuItem icon={Home} text="Home" to="/dashboard/home" />
             <MenuItem icon={Upload} text="Upload Document" to="/dashboard/upload" />
             <MenuItem icon={Coins} text="NFT Minting" to="/dashboard/nft" />
