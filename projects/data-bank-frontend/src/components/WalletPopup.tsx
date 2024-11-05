@@ -61,7 +61,7 @@ export default function PeraWalletPopup({ isOpen, onClose, selectedWallet }: Per
   if (!isOpen || !selectedWallet) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 text-[#3C3C49]">
+    <div className="fixed inset-0 flex items-center justify-center z-50 text-[#3C3C49]">
       <div className="bg-[#F2F4F6] w-full h-full max-w-lg p-0 flex flex-col rounded-2xl">
         <div className="">
           <div className="flex justify-between items-center p-4">
@@ -72,9 +72,9 @@ export default function PeraWalletPopup({ isOpen, onClose, selectedWallet }: Per
           </div>
           <h2 className="text-lg mb-4 px-5 w-[267] h-24">Simply the best Algorand wallet</h2>
         </div>
-        <div className="flex flex-col flex-grow space-y-4 p-4">
+        <div className="flex flex-col flex-grow space-y-2 p-4">
           {/* Connect with Mobile Section */}
-          <div className="w-full py-3 px-3 bg-white rounded-2xl h-auto flex flex-col">
+          <div className="w-full py-2 px-3 bg-white rounded-2xl h-auto flex flex-col">
             <div className="flex items-center cursor-pointer" onClick={() => setIsMobileOpen(!isMobileOpen)}>
               {isMobileOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronRightIcon className="h-5 w-5" />}
               <span>

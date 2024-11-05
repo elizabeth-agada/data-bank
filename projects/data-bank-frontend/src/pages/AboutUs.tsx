@@ -1,6 +1,5 @@
-import React from "react";
 import about from "/img/about.png";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 
 export default function AboutUs() {
   return (

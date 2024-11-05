@@ -16,7 +16,7 @@ export default function NFTMinting() {
   ];
 
   return (
-    <div className="p-4 sm:p-8 text-white bg-[#171618] min-h-screen mt-12">
+    <div className="p-4 sm:p-8 text-white bg-[#0D0D0D] min-h-screen mt-20 md:mt-0 md:ml-64">
       <div className="flex  sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-12">
         <h1 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-0">
           Welcome, <span className="text-[#2B9DDA]">user</span>
@@ -28,7 +28,7 @@ export default function NFTMinting() {
         <p className="text-center text-sm sm:text-base mb-4">
           Your document is being minted as an NFT. Please wait while we process this transaction
         </p>
-        <div className="relative w-full bg-gray-700 h-2 sm:h-3 rounded-lg overflow-hidden">
+        <div className=" w-full bg-gray-700 h-2 sm:h-3 rounded-lg overflow-hidden">
           <div className="bg-[#2B9DDA] h-full" style={{ width: `${mintingDocument.progress}%` }}></div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function NFTMinting() {
                 <tr key={index} className="border-t border-gray-800 text-sm sm:text-base">
                   <td className="px-4 sm:px-6 py-4 flex items-center gap-3">
                     <div className="w-8 h-8 bg-[#2B9DDA]/10 rounded-lg flex items-center justify-center">
-                      <img src="/api/placeholder/32/32" alt="document" className="w-4 h-4" />
+                      <img src="/api/placeholder/32/32" alt="" className="w-4 h-4" />
                     </div>
                     {doc.name}
                   </td>

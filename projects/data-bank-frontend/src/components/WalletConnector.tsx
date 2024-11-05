@@ -34,7 +34,7 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
   if (!isOpen) return null;
 
   return (
-    <div className="absolute -right-14 md:-right-8 top-16 w-screen md:w-[448px] bg-[#5e5e5e] bg-opacity-50  backdrop-blur-sm rounded-lg shadow-lg p-6 z-10">
+    <div className="absolute -right-14 md:-right-8 top-16 w-screen md:w-[448px] bg-[#5e5e5e] bg-opacity-50  backdrop-blur-sm rounded-lg shadow-lg p-6 z-10 transition-all duration-300 ease-in-out">
       <div className="flex justify-end mb-4">
         <button
           onClick={onClose}

@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import wallet from "/img/wallet.png";
 import upload from "/img/upload.png";
 import mint from "/img/mint.png";
