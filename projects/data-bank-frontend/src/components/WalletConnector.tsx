@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import WalletPopup from "./WalletPopup";
+import { useWallet } from "@txnlab/use-wallet";
 
 interface WalletConnectorProps {
   isOpen: boolean;
@@ -9,6 +9,7 @@ interface WalletConnectorProps {
 
 const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) => {
   const [isWalletPopupOpen, setWalletPopupOpen] = useState(false);
+  const { providers, activeAddress } = useWallet();
   const [selectedWallet, setSelectedWallet] = useState<{
     id: string;
     name: string;
@@ -45,19 +46,20 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
           </button>
         </div>
         <div className="space-y-6">
-          {wallets.map((wallet) => (
-            <div key={wallet.id} className="rounded-xl p-5 space-y-4">
-              <div className="flex items-center gap-4">
+          {providers?.map((wallet) => (
+            <div onClick={() => wallet.connect()} key={wallet.metadata.id} className="rounded-xl p-3 space-y-4">
+              <div className="flex p-2 items-center gap-4 cursor-pointer hover:bg-[#6c6b6b] rounded-md">
                 <div className="flex items-center justify-center w-10 h-10 bg-black rounded-lg">
-                  <span className="text-2xl text-white">{wallet.icon}</span>
+                  {/* <span className="text-2xl text-white">{wallet.icon}</span> */}
+                  <img src={wallet.metadata.icon} alt={wallet.metadata.name} />
                 </div>
-                <span className="text-lg text-white font-medium">{wallet.name}</span>
+                <span className="text-lg text-white font-medium">{wallet.metadata.name}</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              {/* <div className="grid grid-cols-3 gap-3">
                 <button
                   className="px-4 py-2 text-sm bg-[#F2F4F6] text-black rounded-xl font-medium hover:bg-gray-200 transition duration-200"
-                  onClick={() => openWalletPopup(wallet)}
+
                 >
                   Connect
                 </button>
@@ -73,14 +75,11 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
                 >
                   Disconnect
                 </button>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
       </div>
-
-      {/* Popup rendered at the root level */}
-      <WalletPopup isOpen={isWalletPopupOpen} onClose={closeWalletPopup} selectedWallet={selectedWallet} />
     </>
   );
 };

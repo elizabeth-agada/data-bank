@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import WalletConnector from "./WalletConnector";
-//import { Home, Settings, Book } from "lucide-react";
+import { useWallet } from "@txnlab/use-wallet";
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
+  const { activeAddress } = useWallet();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -32,7 +34,10 @@ export default function Navbar() {
         <div className="col-span-6 md:col-span-4 flex justify-end">
           <div className="relative">
             <button
-              onClick={() => setIsWalletOpen(!isWalletOpen)}
+              onClick={() => {
+                console.log(activeAddress);
+                setIsWalletOpen(!isWalletOpen);
+              }}
               className="hidden md:block p-2 md:px-5 md:py-4 text-sm bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200"
             >
               Connect Wallet
@@ -53,11 +58,11 @@ export default function Navbar() {
             Home
           </a>
           <a href="/how-it-works" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
-           {/*} <Settings size={18} className="text-[#2B9DDA]" />*/}
+            {/*} <Settings size={18} className="text-[#2B9DDA]" />*/}
             How Does It Work
           </a>
           <a href="/about-us" className="flex gap-3  items-center hover:text-[#2B9DDA] font-semibold text-lg">
-           {/*<Book size={18} className="text-[#2B9DDA]" />*/}
+            {/*<Book size={18} className="text-[#2B9DDA]" />*/}
             About Us
           </a>
           <button
