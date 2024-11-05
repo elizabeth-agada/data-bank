@@ -16,14 +16,12 @@ export default function NFTMinting() {
   ];
 
   return (
-    <div className="p-4 sm:p-8 text-white bg-[#171618] min-h-screen">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-12">
+    <div className="p-4 sm:p-8 text-white bg-[#171618] min-h-screen mt-12">
+      <div className="flex  sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-12">
         <h1 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-0">
           Welcome, <span className="text-[#2B9DDA]">user</span>
         </h1>
-        <div className="bg-white text-black px-4 py-2 rounded-lg text-xs sm:text-sm font-mono">
-          6VDFGQZLNU3RTEXULVS
-        </div>
+        <div className="bg-white text-black px-4 py-2 rounded-lg text-xs sm:text-sm font-mono">6VDFGQZLNU3RTEXULVS</div>
       </div>
 
       <div className="bg-[#1E1E1E] rounded-xl p-4 sm:p-6 mb-6 sm:mb-12">
@@ -31,10 +29,7 @@ export default function NFTMinting() {
           Your document is being minted as an NFT. Please wait while we process this transaction
         </p>
         <div className="relative w-full bg-gray-700 h-2 sm:h-3 rounded-lg overflow-hidden">
-          <div
-            className="bg-[#2B9DDA] h-full"
-            style={{ width: `${mintingDocument.progress}%` }}
-          ></div>
+          <div className="bg-[#2B9DDA] h-full" style={{ width: `${mintingDocument.progress}%` }}></div>
         </div>
       </div>
 
@@ -43,7 +38,6 @@ export default function NFTMinting() {
         <div className="text-gray-400 text-sm sm:text-base mb-1">Document Type: {mintingDocument.type}</div>
         <div className="text-gray-400 text-sm sm:text-base">Unique ID: {mintingDocument.uniqueID}</div>
       </div>
-
 
       <div className="mb-6 sm:mb-12">
         <h2 className="text-lg font-semibold mb-2 sm:mb-4">NFT Details</h2>
@@ -66,10 +60,7 @@ export default function NFTMinting() {
             </thead>
             <tbody>
               {documents.map((doc, index) => (
-                <tr
-                  key={index}
-                  className="border-t border-gray-800 text-sm sm:text-base"
-                >
+                <tr key={index} className="border-t border-gray-800 text-sm sm:text-base">
                   <td className="px-4 sm:px-6 py-4 flex items-center gap-3">
                     <div className="w-8 h-8 bg-[#2B9DDA]/10 rounded-lg flex items-center justify-center">
                       <img src="/api/placeholder/32/32" alt="document" className="w-4 h-4" />
@@ -77,9 +68,7 @@ export default function NFTMinting() {
                     {doc.name}
                   </td>
                   <td className="px-4 sm:px-6 py-4">
-                    <span className="px-2 py-1 bg-[#2B9DDA] text-white rounded-lg text-xs sm:text-sm">
-                      {doc.type}
-                    </span>
+                    <span className="px-2 py-1 bg-[#2B9DDA] text-white rounded-lg text-xs sm:text-sm">{doc.type}</span>
                   </td>
                   <td className="px-4 sm:px-6 py-4 text-gray-400">{doc.size}</td>
                   <td className="px-4 sm:px-6 py-4 text-gray-400">{doc.date}</td>
