@@ -4,15 +4,15 @@ import { PeraWalletConnect } from "@perawallet/connect";
 import { PROVIDER_ID, ProvidersArray, WalletProvider, useInitializeProviders } from "@txnlab/use-wallet";
 import algosdk from "algosdk";
 import { SnackbarProvider } from "notistack";
-import Home from "./Home";
-import HowItWorks from "./HowItWorks";
-import AboutUs from "./AboutUs";
-import DashBoard from "./DashBoard";
-import DashboardHome from "./DashboardHome";
-import NFTMinting from "./NFTMinting";
+import Home from "./pages/Home";
+import HowItWorks from "./pages/HowItWorks";
+import AboutUs from "./pages/AboutUs";
+import DashBoard from "./pages/DashBoard";
+import DashboardHome from "./pages/DashboardHome";
+import NFTMinting from "./pages/NFTMinting";
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from "./utils/network/getAlgoClientConfigs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashboardUpload from "./DashboardUpload ";
+import DashboardUpload from "./pages/DashboardUpload ";
 
 let providersArray: ProvidersArray;
 if (import.meta.env.VITE_ALGOD_NETWORK === "") {

@@ -45,7 +45,6 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
             <XMarkIcon className="h-5 w-5" />
           </button>
         </div>
-
         <div className="space-y-6">
           {providers?.map((wallet) => (
             <div onClick={() => wallet.connect()} key={wallet.metadata.id} className="rounded-xl p-3 space-y-4">

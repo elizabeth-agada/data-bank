@@ -1,6 +1,6 @@
 import { Upload } from "lucide-react";
-import FileUpload from "./components/FileUpload";
-import DocumentSelector from "./components/DocumentSelector";
+import FileUpload from "../components/FileUpload";
+import DocumentSelector from "../components/DocumentSelector";
 
 export default function DashboardUpload() {
   return (
