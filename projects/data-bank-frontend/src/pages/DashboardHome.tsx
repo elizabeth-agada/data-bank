@@ -1,8 +1,61 @@
-import React from "react";
-import { MoreVertical } from "lucide-react";
+"use client"
+
+import React, { useEffect, useState } from "react"
+import { MoreVertical, X } from "lucide-react"
+import DashboardNav from "../components/DashboardNav"
+import { useWallet } from "@txnlab/use-wallet"
 
 export default function DashboardHome() {
-  // Mock data for recent and all documents
+  interface Nft {
+    params: {
+      name: string
+      url: string
+      "url-b64": string
+      "unit-name": string
+      total: number
+    }
+  }
+
+  const [nfts, setNfts] = useState<Nft[]>([])
+  const [fullscreenNftUrl, setFullscreenNftUrl] = useState("")
+  const { activeAddress } = useWallet()
+
+  useEffect(() => {
+    if (!activeAddress) return
+    const fetchNftData = async () => {
+      try {
+        const response = await fetch(
+          `https://rational-kyle-shagbaortechnology-a92622c9.koyeb.app/api/user-nfts/?wallet_address=${activeAddress}`
+        )
+
+        console.log(activeAddress)
+        if (!response.ok) {
+          throw new Error("Failed to fetch NFT data")
+        }
+
+        console.log("NFT data response:", response)
+        const data = await response.json()
+        setNfts(data.nfts)
+        console.log("NFT data:", data)
+      } catch (error) {
+        console.error("Error fetching NFT data:", error)
+      }
+    }
+
+    fetchNftData()
+  }, [activeAddress])
+
+  const handleNftDoubleClick = (nftUrl: string) => {
+    setFullscreenNftUrl(nftUrl)
+    document.body.classList.add("overflow-hidden")
+  }
+
+  const handleCloseFullscreen = () => {
+    setFullscreenNftUrl("")
+    document.body.classList.remove("overflow-hidden")
+  }
+
+  // Mock data for recent documents
   const recentDocuments = [
     {
       title: "Documents",
@@ -22,68 +75,20 @@ export default function DashboardHome() {
       shared: ["user1.jpg", "user2.jpg"],
       type: "folder",
     },
-  ];
-
-  const allDocuments = [
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "20 November 2023" },
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "30 November 2023" },
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "20 November 2023" },
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "20 November 2023" },
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "20 November 2023" },
-    { name: "Favour-Resume", type: "PDF", size: "12.3 MB", date: "20 November 2023" },
-  ];
+  ]
 
   return (
     <div className="p-8 text-white bg-[#0D0D0D] min-h-screen mt-20 md:mt-0 md:ml-64">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-12">
-        <h1 className="text-2xl font-semibold">
-          Welcome, <span className="text-[#2B9DDA]">user</span>
-        </h1>
-        <div className="bg-white text-black px-4 py-2 rounded-lg text-sm font-mono">6VDFGQZLNU3RTEXULVS</div>
-      </div>
+      <DashboardNav />
 
       {/* Recent Documents Section */}
       <div className="mb-8">
-        <h2 className="text-lg font-semibold mb-4">Recent Documents</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {recentDocuments.map((doc, index) => (
-            <div key={index} className="bg-[#1E1E1E] rounded-xl p-4 border border-gray-800">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#2B9DDA]/10 rounded-lg flex items-center justify-center">
-                    <img src="/api/placeholder/40/40" alt="folder" className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium">{doc.title}</h3>
-                    <p className="text-xs text-gray-400">{doc.date}</p>
-                  </div>
-                </div>
-                <button className="text-gray-400 hover:text-white">
-                  <MoreVertical size={16} />
-                </button>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <div className="flex -space-x-2">
-                  {doc.shared.map((user, idx) => (
-                    <div key={idx} className="w-6 h-6 rounded-full border-2 border-[#1E1E1E] bg-gray-300">
-                      <img src="/api/placeholder/24/24" alt="user" className="w-full h-full rounded-full" />
-                    </div>
-                  ))}
-                </div>
-                <button className="px-3 py-1 bg-white text-[#2B9DDA] text-xs sm:text-sm rounded-lg hover:bg-[#2B9DDA]/20 transition-colors">
-                  Share
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* ... */}
       </div>
 
       {/* All Documents Section */}
       <div>
-        <h2 className="text-lg font-medium mb-4">All Documents</h2>
+        <h2 className="text-lg font-medium mb-4">All NFTs</h2>
         <div className="bg-[#1E1E1E] rounded-xl border border-gray-800 overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -96,21 +101,33 @@ export default function DashboardHome() {
               </tr>
             </thead>
             <tbody>
-              {allDocuments.map((doc, index) => (
-                <tr key={index} className="border-t border-gray-800 text-sm">
+              {nfts.map((nft, index) => (
+                <tr
+                  key={index}
+                  className="border-t border-gray-800 text-sm"
+                  onDoubleClick={() => handleNftDoubleClick(nft.params.url)}
+                >
                   <td className="px-6 py-4 flex items-center gap-3">
                     <div className="w-8 h-8 bg-[#2B9DDA]/10 rounded-lg flex items-center justify-center">
-                      <img src="/api/placeholder/32/32" alt="document" className="w-4 h-4" />
+                      <img
+                        src={nft.params.url}
+                        alt={nft.params.name}
+                        className="w-4 h-4"
+                      />
                     </div>
-                    {doc.name}
+                    {nft.params.name}
                   </td>
                   <td className="px-6 py-4">
-                    <span className="px-2 py-1 bg-[#2B9DDA] text-white rounded-lg">{doc.type}</span>
+                    <span className="px-2 py-1 bg-[#2B9DDA] text-white rounded-lg">
+                      {nft.params["unit-name"]}
+                    </span>
                   </td>
-                  <td className="px-6 py-4 text-gray-400">{doc.size}</td>
-                  <td className="px-6 py-4 text-gray-400">{doc.date}</td>
+                  <td className="px-6 py-4 text-gray-400">{nft.params.total}</td>
+                  <td className="px-6 py-4 text-gray-400">{new Date().toLocaleDateString()}</td>
                   <td className="px-6 py-4 text-right">
-                    <button className="text-[#2B9DDA] bg-white p-3 px-5 hover:text-[#2B9DDA]/80">Share</button>
+                    <button onClick={() => handleNftDoubleClick(nft.params.url)} className="text-[#2B9DDA] bg-white p-3 px-5 hover:text-[#2B9DDA]/80">
+                      View
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -118,6 +135,31 @@ export default function DashboardHome() {
           </table>
         </div>
       </div>
+
+      {fullscreenNftUrl && (
+        <div
+          className="fixed inset-0 w-full h-full bg-[#5e5e5e] bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ease-in-out"
+          onClick={handleCloseFullscreen}
+        >
+          <div
+            className="relative max-w-4xl w-full mx-4 bg-[#1E1E1E] rounded-lg overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={fullscreenNftUrl}
+              alt="Fullscreen NFT"
+              className="w-full h-auto object-contain max-h-[80vh]"
+            />
+            <button
+              onClick={handleCloseFullscreen}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200 ease-in-out"
+              aria-label="Close fullscreen view"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
-  );
+  )
 }

@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Home, Upload, Coins, LogOut } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
+import { useWallet } from "@txnlab/use-wallet";
+import { useNavigate } from "react-router-dom";
 
 interface MenuItemProps {
   icon: LucideIcon;
@@ -32,13 +34,16 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, text, to }) => {
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
+  const { providers } = useWallet();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLogout = () => {
-    console.log("Logout clicked");
+    providers?.forEach((wallet) => wallet.disconnect());
+    navigate("/");
   };
 
   return (
@@ -68,7 +73,7 @@ export default function Sidebar() {
           <nav className="flex-1 ">
             <MenuItem icon={Home} text="Home" to="/dashboard/home" />
             <MenuItem icon={Upload} text="Upload Document" to="/dashboard/upload" />
-            <MenuItem icon={Coins} text="NFT Minting" to="/dashboard/nft" />
+            {/* <MenuItem icon={Coins} text="Minted NFTs" to="/dashboard/nft" /> */}
           </nav>
 
           {/* Footer */}
@@ -86,3 +91,4 @@ export default function Sidebar() {
     </div>
   );
 }
+

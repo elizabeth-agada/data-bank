@@ -1,4 +1,5 @@
 import React from "react";
+import DashboardNav from "../components/DashboardNav";
 
 export default function NFTMinting() {
   const mintingDocument = {
@@ -17,12 +18,7 @@ export default function NFTMinting() {
 
   return (
     <div className="p-4 sm:p-8 text-white bg-[#0D0D0D] min-h-screen mt-20 md:mt-0 md:ml-64">
-      <div className="flex  sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-12">
-        <h1 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-0">
-          Welcome, <span className="text-[#2B9DDA]">user</span>
-        </h1>
-        <div className="bg-white text-black px-4 py-2 rounded-lg text-xs sm:text-sm font-mono">6VDFGQZLNU3RTEXULVS</div>
-      </div>
+      <DashboardNav />
 
       <div className="bg-[#1E1E1E] rounded-xl p-4 sm:p-6 mb-6 sm:mb-12">
         <p className="text-center text-sm sm:text-base mb-4">
