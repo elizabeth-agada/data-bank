@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import WalletPopup from './WalletPopup';
+import React, { useState } from "react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import WalletPopup from "./WalletPopup";
 
 interface WalletConnectorProps {
   isOpen: boolean;
@@ -16,9 +16,9 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
   } | null>(null);
 
   const wallets = [
-    { id: 'pera', name: 'Pera', icon: '✱' },
-    { id: 'defly', name: 'Defly', icon: '▲' },
-    { id: 'daffi', name: 'Daffi', icon: '○' },
+    { id: "pera", name: "Pera", icon: "✱" },
+    { id: "defly", name: "Defly", icon: "▲" },
+    { id: "daffi", name: "Daffi", icon: "○" },
   ];
 
   const openWalletPopup = (wallet: { id: string; name: string; icon: string }) => {
@@ -34,9 +34,12 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
   if (!isOpen) return null;
 
   return (
-    <div className="absolute -right-8 top-16 w-[448px] bg-[#5e5e5e] rounded-lg shadow-lg p-6 z-10">
+    <div className="absolute -right-14 md:-right-8 top-16 w-screen md:w-[448px] bg-[#5e5e5e] bg-opacity-50  backdrop-blur-sm rounded-lg shadow-lg p-6 z-10">
       <div className="flex justify-end mb-4">
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-200 w-10 h-10 bg-black rounded-lg flex justify-center items-center">
+        <button
+          onClick={onClose}
+          className="text-gray-400 hover:text-gray-200 w-10 h-10 bg-black rounded-lg flex justify-center items-center"
+        >
           <XMarkIcon className="h-5 w-5" />
         </button>
       </div>
@@ -60,7 +63,7 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
               </button>
               <button
                 className="px-4 py-2 text-sm bg-transparent border border-white text-white rounded-xl font-medium hover:bg-white/10 transition duration-200"
-              onClick={() => console.log(`Set ${wallet.name} as active`)}
+                onClick={() => console.log(`Set ${wallet.name} as active`)}
               >
                 Set Active
               </button>
@@ -75,11 +78,7 @@ const WalletConnector: React.FC<WalletConnectorProps> = ({ isOpen, onClose }) =>
         ))}
       </div>
 
-      <WalletPopup
-        isOpen={isWalletPopupOpen}
-        onClose={closeWalletPopup}
-        selectedWallet={selectedWallet}
-      />
+      <WalletPopup isOpen={isWalletPopupOpen} onClose={closeWalletPopup} selectedWallet={selectedWallet} />
     </div>
   );
 };

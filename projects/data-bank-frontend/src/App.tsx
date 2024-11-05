@@ -65,6 +65,7 @@ export default function App() {
             <Route path="/dashboard" element={<DashBoard />}>
               <Route path="home" element={<DashboardHome />} />
               <Route path="upload" element={<DashboardUpload />} />
+              <Route path="nft" element={<NFTMinting />} />
             </Route>
           </Routes>
         </WalletProvider>
