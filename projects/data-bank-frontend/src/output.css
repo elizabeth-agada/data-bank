@@ -1524,6 +1524,10 @@ video {
   background-color: rgb(255 255 255 / 0.05);
 }
 
+.hover\:bg-white\/10:hover {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
 .hover\:text-\[\#2B9DDA\]:hover {
   --tw-text-opacity: 1;
   color: rgb(43 157 218 / var(--tw-text-opacity));
@@ -1546,6 +1550,11 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
