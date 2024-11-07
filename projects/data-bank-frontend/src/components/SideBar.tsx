@@ -50,7 +50,7 @@ export default function Sidebar() {
     <div
       className={` absolute flex flex-col bg-[#171618] text-white py-3 ${
         isOpen ? "pl-3 w-64 h-screen" : "w-full h-auto"
-      } transition-all duration-300 ease-in-out border-r border-gray-800`}
+      } transition-all duration-300 ease-in-out border-r-white`}
     >
       <div className="md:hidden ml-4" onClick={toggleMobileMenu}>
         {isOpen ? (
@@ -64,19 +64,15 @@ export default function Sidebar() {
       </div>
       {isOpen && (
         <div className="flex flex-col  h-full">
-          {/* Header */}
           <div className="px-6 mb-6">
             <img src="/img/logo.png" alt="Logo" className="h-10" />
           </div>
 
-          {/* Navigation */}
-          <nav className="flex-1 ">
+          <nav className="flex-1 mt-1">
             <MenuItem icon={Home} text="Home" to="/dashboard/home" />
             <MenuItem icon={Upload} text="Upload Document" to="/dashboard/upload" />
-            {/* <MenuItem icon={Coins} text="Minted NFTs" to="/dashboard/nft" /> */}
           </nav>
 
-          {/* Footer */}
           <div className="pl-11">
             <button
               onClick={handleLogout}

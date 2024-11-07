@@ -9,12 +9,12 @@ export default function DashboardUpload() {
       {/* Header */}
       <DashboardNav />
       <section className="w-full h-full">
-        <p className="text-lg mb-3 md:text-start text-center">
+        <p className="text-lg mb-3 text-center">
           Upload your document securely to the blockchain. choose a document type and set your privacy preferences.
         </p>
         <FileUpload />
         <section className="mt-5">
-          <DocumentSelector />
+          {/* <DocumentSelector /> */}
         </section>
 
       </section>

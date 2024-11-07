@@ -2,7 +2,6 @@ import React from "react";
 import { MoreVertical } from "lucide-react";
 
 export default function DashboardHome() {
-  // Mock data for recent and all documents
   const recentDocuments = [
     {
       title: "Documents",
@@ -44,7 +43,6 @@ export default function DashboardHome() {
         </div>
       </div>
 
-      {/* Recent Documents Section */}
       <div className="mb-8">
         <h2 className="text-lg font-semibold mb-4">Recent Documents</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -88,7 +86,6 @@ export default function DashboardHome() {
         </div>
       </div>
 
-      {/* All Documents Section */}
       <div>
         <h2 className="text-lg font-medium mb-4">All Documents</h2>
         <div className="bg-[#1E1E1E] rounded-xl border border-gray-800 overflow-x-auto">

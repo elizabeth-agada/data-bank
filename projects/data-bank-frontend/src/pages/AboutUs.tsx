@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 
 export default function AboutUs() {
   return (
-    <div className="text-white text-center">
+    <div className="text-white text-center h-screen">
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 mx-5 xl:mx-40  md:mt-28 mt-6 gap-6 lg:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 mx-5 xl:mx-40  md:mt-28 mt-6 gap-6 lg:gap-12 mb-20">
         {/* mission */}
         <div className="md:col-start-2 md:col-span-2 border border-[#2B9DDA] rounded-xl bg-[#b5b5b5] bg-opacity-30 p-3 lg:p-7">
           <div className="flex gap-3 justify-center items-center mb-4 ">

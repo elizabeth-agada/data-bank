@@ -84,16 +84,16 @@ export default function FileUpload(): JSX.Element {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       {loading ? (
-        <div className="min-h-[100px] flex items-center justify-center bg-black/90 p-6 rounded-lg">
+        <div className="min-h-[100px] flex items-center justify-center bg-black/90 p-6 rounded-lg border-2 border-dashed border-[#2B9DDA]">
           <div className="w-full max-w-xl space-y-4">
             <p className="text-white text-center">
               Your document is being minted as an NFT. Please wait while we process this transaction
             </p>
             <div className="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
               <div
-                className="bg-cyan-500 h-full rounded-full w-1/3 animate-indeterminate"
+                className="bg-[#2B9DDA] h-full rounded-full w-1/3 animate-indeterminate"
               />
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function FileUpload(): JSX.Element {
               <p className="text-gray-500 text-sm mb-4">PNG, PDF, JPG, DOCX accepted</p>
               <button
                 onClick={handleBrowseClick}
-                className="px-4 py-2 bg-white text-gray-900 rounded-md font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 bg-white text-gray-900 rounded-md font-medium hover:bg-[#2B9DDA] focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Browse
               </button>
@@ -132,14 +132,14 @@ export default function FileUpload(): JSX.Element {
                   placeholder="Enter a name for your document"
                   value={fileName}
                   onChange={(e) => setFileName(e.target.value)}
-                  className="mt-4 p-2 border border-gray-300 rounded-md w-full bg-gray-800 text-black"
+                  className="mt-4 p-2 border border-gray-300 rounded-md w-full bg-gray-800 text-white"
                 />
               </div>
             )}
           </div>
           <button
             onClick={handleMintClick}
-            className="flex gap-2 items-center justify-center text-black px-5 py-2 bg-white font-semibold md:text-lg rounded-lg hover:bg-[#2B9DDA]/20 transition-colors mt-7 w-full"
+            className="flex gap-2 items-center justify-center text-black px-5 py-2 bg-white font-semibold md:text-lg rounded-lg hover:bg-[#2B9DDA] transition-colors mt-7 w-full md:max-w-sm place-self-center"
           >
             <Coins size={17} />
             Mint

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useWallet } from '@txnlab/use-wallet'
 import { useNavigate } from 'react-router-dom'
+import { User2, Hand } from 'lucide-react';
 
 export default function DashboardNav() {
   const { providers, activeAddress } = useWallet();
@@ -25,14 +26,15 @@ export default function DashboardNav() {
   };
 
   return (
-    <div className="flex items-center justify-between mb-12">
+    <div className="flex items-center justify-between mb-3">
       <h1 className="text-2xl font-semibold">
-        Welcome, <span className="text-[#2B9DDA]">user</span>
+        Welcome <span className="text-[#2B9DDA]">!!</span>
       </h1>
       <button
         onClick={handleWalletClick}
-        className="bg-white text-black px-4 py-2 rounded-lg text-sm font-mono"
+        className="flex items-center justify-center gap-2 bg-white text-black p-2 md:px-4 md:py-2 rounded-lg text-sm font-mono"
         title='click me to logout'>
+        <User2 size={16} />
           {activeAddress && shortenAddress(activeAddress)}
       </button>
     </div>
