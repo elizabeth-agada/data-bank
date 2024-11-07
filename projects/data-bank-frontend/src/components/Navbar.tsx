@@ -17,31 +17,27 @@ export default function Navbar() {
 
   const disconnectWallet = () => {
     providers?.forEach((wallet) => wallet.disconnect());
-  }
+  };
 
   function shortenAddress(address: string | any[]) {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
-}
-
-useEffect(() => {
-
-  if (activeAddress && !hasConnected) {
-    setHasConnected(true);
-    navigate("/dashboard/home");
   }
-}, [activeAddress, hasConnected, navigate]);
 
-const handleWalletClick = () => {
-  if (activeAddress) {
+  useEffect(() => {
+    if (activeAddress && !hasConnected) {
+      setHasConnected(true);
+      navigate("/dashboard/home");
+    }
+  }, [activeAddress, hasConnected, navigate]);
 
-    disconnectWallet();
-    setHasConnected(false);
-
-  } else {
-
-    setIsWalletOpen(true);
-  }
-};
+  const handleWalletClick = () => {
+    if (activeAddress) {
+      disconnectWallet();
+      setHasConnected(false);
+    } else {
+      setIsWalletOpen(true);
+    }
+  };
 
   return (
     <>
@@ -91,10 +87,13 @@ const handleWalletClick = () => {
             About Us
           </a>
           <button
-            onClick={() => setIsWalletOpen(!isWalletOpen)}
+            onClick={() => {
+              toggleMobileMenu();
+              setIsWalletOpen(!isWalletOpen);
+            }}
             className="p-2 md:px-5 md:py-4 text-sm bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200"
           >
-            {activeAddress ?? "Connect Wallet"}
+            {activeAddress ? shortenAddress(activeAddress) : "Connect Wallet"}
           </button>
         </div>
       )}
